@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
 if ENV['HEROKU']
-  ruby '2.1.5'
+  #ruby '2.1.5'
 
-  gem 'pg'
-  gem 'thin' # Change this to another web server if you want (ie. unicorn, passenger, puma...)
-  gem 'rails_12factor'
+  #gem 'pg'
+  #gem 'thin' # Change this to another web server if you want (ie. unicorn, passenger, puma...)
+  #gem 'rails_12factor'
 else
 
   require 'yaml'
@@ -69,6 +69,7 @@ gem 'recaptcha', require: 'recaptcha/rails', branch: 'rails3'
 gem 'rubypants', '~> 0.2.0'
 gem 'twitter', '~> 5.14.0'
 gem 'uuidtools', '~> 2.1.1'
+gem 'net-ssh'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

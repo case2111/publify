@@ -27,9 +27,12 @@ class Admin::DashboardController < Admin::BaseController
     @drafts = Article.drafts.where('user_id = ?', current_user.id).limit(5)
 
     @statspam = Comment.spam.count
-    @inbound_links = inbound_links
-    @publify_links = publify_dev
-    publify_version
+    # too slowly load content from internet in china
+    # @inbound_links = inbound_links
+    # @publify_links = publify_dev
+    # publify_version
+    @publify_links = []
+    @inbound_links = []
   end
 
   def publify_version
@@ -62,6 +65,7 @@ class Admin::DashboardController < Admin::BaseController
 
   def publify_dev
     url = 'http://blog.publify.co/articles.rss'
+    url = 'http://coolshell.cn/feed'
     parse(url)[0..2]
   end
 
