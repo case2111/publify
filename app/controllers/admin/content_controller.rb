@@ -19,7 +19,6 @@ class Admin::ContentController < Admin::BaseController
       @article = Article.new(params[:article])
     end
   end
-
   def new
     @article = Article::Factory.new(this_blog, current_user).default
     load_resources
@@ -147,7 +146,15 @@ class Admin::ContentController < Admin::BaseController
       return false
     end
   end
-
+  def update_excerpt_txt
+    text = @article.body.split("\n")
+      excerpt = ""
+      text.each do |txt|
+          excerpt += txt + "\n"
+          break if excerpt.length >= 32
+      end
+      @article.excerpt = "#{excerpt}"
+  end
   def update_article_attributes
     @article.attributes = update_params
     @article.published_at = parse_date_time params[:article][:published_at]
@@ -155,6 +162,7 @@ class Admin::ContentController < Admin::BaseController
     @article.save_attachments!(params[:attachments])
     @article.state = 'draft' if @article.draft
     @article.text_filter ||= current_user.default_text_filter
+    update_excerpt_txt
   end
 
   def update_params

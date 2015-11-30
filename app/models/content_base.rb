@@ -54,6 +54,9 @@ module ContentBase
   def html_map(field)
     content_fields.include? field
   end
+  def content_sumary(txt)
+
+  end
 
   def excerpt_text(length = 160)
     if respond_to?(:excerpt) && (excerpt || '') != ''
