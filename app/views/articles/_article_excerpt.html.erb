@@ -5,8 +5,6 @@
   </div>
 <% else %>
   <%= simple_format article.html(:body) %>
-    <%# Rails.logger.debug "article.html = #{article.html(:body)} \n###################" %>
-    <%# Rails.logger.debug "blog body = #{article.body}" %>
   <% if article.extended? %>
     <div class="extended">
       <p><%= link_to_permalink article, t(".continue_reading") %></p>

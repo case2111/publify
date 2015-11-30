@@ -7,7 +7,8 @@ if ENV['HEROKU']
   #gem 'thin' # Change this to another web server if you want (ie. unicorn, passenger, puma...)
   #gem 'rails_12factor'
 else
-
+# See https://github.com/rails/execjs#readme for more supported runtimes
+  gem 'therubyracer', platforms: :ruby
   require 'yaml'
   env = ENV['RAILS_ENV'] || 'development'
   dbfile = File.expand_path('../config/database.yml', __FILE__)
