@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
                                           source: 'notify_content'
 
   has_many :articles
+  has_many :item_types
 
   serialize :settings, Hash
 

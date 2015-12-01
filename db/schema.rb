@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150807134129) do
+ActiveRecord::Schema.define(version: 20151201152122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150807134129) do
     t.integer  "parent_id"
     t.text     "settings"
     t.string   "post_type",      default: "read"
+    t.integer  "item_type_id"
   end
 
   add_index "contents", ["id", "type"], name: "index_contents_on_id_and_type", using: :btree
@@ -87,6 +88,17 @@ ActiveRecord::Schema.define(version: 20150807134129) do
   add_index "feedback", ["id", "type"], name: "index_feedback_on_id_and_type", using: :btree
   add_index "feedback", ["text_filter_id"], name: "index_feedback_on_text_filter_id", using: :btree
   add_index "feedback", ["user_id"], name: "index_feedback_on_user_id", using: :btree
+
+  create_table "item_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "kind"
+    t.text     "describe"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "item_types", ["user_id"], name: "index_item_types_on_user_id", using: :btree
 
   create_table "page_caches", force: :cascade do |t|
     t.string "name"
@@ -213,4 +225,5 @@ ActiveRecord::Schema.define(version: 20150807134129) do
   add_index "users", ["resource_id"], name: "index_users_on_resource_id", using: :btree
   add_index "users", ["text_filter_id"], name: "index_users_on_text_filter_id", using: :btree
 
+  add_foreign_key "item_types", "users"
 end
