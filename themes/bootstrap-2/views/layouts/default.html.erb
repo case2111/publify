@@ -11,6 +11,11 @@
     <div class="container">
       <div class='navbar-header'>
         <%= link_to(content_tag(:span, '', class: 'glyphicon glyphicon-th'), this_blog.base_url, class: 'navbar-brand' )%>
+        <ul class="nav navbar-nav">
+        <% item_type_gets.each do |item| %>
+        <li><%= link_to item.name, item_path(item) %></li>
+        <% end %>
+        </ul>
       </div>
       <ul class='nav navbar-nav pull-right'>
         <!--<li><%= link_to(t('.statuses'), {controller: 'notes'}) %></li>-->

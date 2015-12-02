@@ -1,12 +1,5 @@
 <article id="article-<%= article.id %>" class='h-entry hentry h-as-note'>
-    <div class="media">
-        <div class="pull-left">
-            <a href="#">
-                <img class="media-object" src="thumb_blank.jpg">
-            </a>
-        </div>
-        <div class="media-body">
-            <h2 class='page-header p-name entry-title media-heading'><%= (controller.controller_name == 'redirect') ? article.title : link_to_permalink(article, article.title) %></h2>
+            <h2 class='page-header p-name entry-title'><%= (controller.controller_name == 'redirect') ? article.title : link_to_permalink(article, article.title) %></h2>
 
             <div class='e-content entry-content article'>
                 <%= render 'articles/protected_article_content', {:article => article} %>
@@ -15,8 +8,5 @@
 
             <div class='comments'>
                 <%= render 'articles/comment_counter', article: article %>
-                <p></p>
             </div>
-        </div>
-    </div>
 </article>

@@ -54,6 +54,9 @@ Rails.application.routes.draw do
   get 'articles/markup_help/:id', to: 'articles#markup_help', format: false
   get 'articles/tag', to: 'articles#tag', format: false
 
+  #add item type route
+  get 'item_type/:id', to: 'item_types#show', as: 'item', format: false
+
   # SetupController
   match '/setup', to: 'setup#index', via: [:get, :post], format: false
 

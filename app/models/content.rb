@@ -24,6 +24,7 @@ class Content < ActiveRecord::Base
   scope :not_published, -> { where('published = ?', false) }
   scope :draft, -> { where('state = ?', 'draft') }
   scope :no_draft, -> { where('state <> ?', 'draft').order('published_at DESC') }
+  scope :item_process, ->(item_id) { where('item_type_id = ?', item_id) }
   scope :searchstring, lambda { |search_string|
     tokens = search_string.split(' ').map { |c| "%#{c.downcase}%" }
     where('state = ? AND ' + (['(LOWER(body) LIKE ? OR LOWER(extended) LIKE ? OR LOWER(title) LIKE ?)'] * tokens.size).join(' AND '),

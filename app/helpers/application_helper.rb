@@ -234,6 +234,9 @@ module ApplicationHelper
             "https://twitter.com/#{reply['user']['screen_name']}/status/#{reply['id_str']}")
   end
 
+  def item_type_gets
+    ItemType.find_items
+  end
   private
 
   def feed_for(type)
