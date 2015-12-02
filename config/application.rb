@@ -89,7 +89,8 @@ module Publify
       ActionMailer::Base.server_settings = mail_settings['settings']
     rescue
       # Fall back to using sendmail by default
-      ActionMailer::Base.delivery_method = :sendmail
+      # ActionMailer::Base.delivery_method = :sendmail
+      ActionMailer::Base.delivery_method = :test
     end
   end
 end

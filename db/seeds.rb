@@ -27,11 +27,17 @@ TextFilter.create(name: 'markdown smartypants', description: 'Markdown with Smar
 TextFilter.create(name: 'textile', description: 'Textile',
                   markup: 'textile', filters: [], params: {})
 
-admin = Profile.create(label: 'admin', nicename: 'Publify administrator',
-                       modules: [:dashboard, :articles, :notes, :pages, :feedback, :media, :themes, :sidebar, :profile, :users, :settings, :seo])
+# admin = Profile.create(label: 'admin', nicename: 'administrator',
+#                        modules: [:dashboard, :articles, :notes, :pages, :feedback, :media, :themes, :sidebar, :profile, :users, :settings, :seo])
+admin = Profile.create(label: 'admin', nicename: 'administrator',
+                       modules: [:dashboard, :articles, :pages, :feedback, :media, :profile, :users, :settings, :seo])
 publisher = Profile.create(label: 'publisher', nicename: 'Blog publisher',
                            modules: [:dashboard, :articles, :notes, :pages, :feedback, :media, :profile])
 contributor = Profile.create(label: 'contributor', nicename: 'Contributor',
                              modules: [:dashboard, :profile ])
+admin = User.create(login: 'admin', password: '1chen', name: 'admin', email: 'case2111@sina.com', nickname: 'Admin')
+user = User.find_by_login('admin')
+item1 = ItemType.create(name: 'Home', kind: 'nav', describe: 'home page', user_id: user.id)
+item2 = ItemType.create(name: 'Test', kind: 'nav', describe: 'test page', user_id: user.id)
 
 Dir.mkdir("#{::Rails.root.to_s}/public/files") unless File.directory?("#{::Rails.root.to_s}/public/files")

@@ -7,12 +7,14 @@ class SetupController < ApplicationController
 
     this_blog.blog_name = params[:setting][:blog_name]
     this_blog.base_url = blog_base_url
-
-    @user = User.new(login: 'admin',
-                     email: params[:setting][:email],
-                     nickname: 'Publify Admin')
-    @user.generate_password!
-    @user.name = @user.login
+    @user = User.find_by_login('admin')
+    if !@user
+      @user = User.new(login: 'admin',
+                       email: params[:setting][:email],
+                       nickname: 'Admin')
+      @user.generate_password!
+      @user.name = @user.login
+    end
 
     unless this_blog.valid? && @user.valid?
       redirect_to setup_url

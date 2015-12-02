@@ -46,11 +46,11 @@
           </a>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
             <li><%= link_to t("admin.menu.profile"), { :controller => 'admin/profiles', :action => 'index'}  %></li>
-            <li role="presentation" class="divider"></li>
+           <!-- <li role="presentation" class="divider"></li>
             <li><%= link_to t("admin.menu.documentation"), "https://github.com/fdv/publify/wiki" %></li>
             <li><%= link_to t("admin.menu.report_a_bug"), "https://github.com/fdv/publify/issues" %></li>
             <li><%= link_to t("admin.menu.in_page_plugins"), "https://github.com/fdv/publify/wiki/In-Page-Plugins" %></li>
-            <li><%= link_to t("admin.menu.sidebar_plugins"), "https://github.com/fdv/publify/wiki/Sidebar-plugins" %></li>
+            <li><%= link_to t("admin.menu.sidebar_plugins"), "https://github.com/fdv/publify/wiki/Sidebar-plugins" %></li>-->
             <li role="presentation" class="divider"></li>
             <li><%= link_to t("admin.menu.logout").html_safe, {:controller => "/accounts", :action=>"logout"} %></li>
           </ul>
@@ -66,7 +66,7 @@
             <li><%= link_to(t("admin.menu.new_article"), {controller: 'content', action: 'new'}) %></li>
             <li><%= link_to(t("admin.menu.new_page"), {controller: 'pages', actions: 'new'}) %></li>
             <li><%= link_to(t("admin.menu.new_media"), {controller: 'resources', action: 'index'}) %></li>
-            <li><%= link_to(t("admin.menu.new_note"), {controller: 'notes'}) %></li>
+            <!--<li><%= link_to(t("admin.menu.new_note"), {controller: 'notes'}) %></li>-->
           </ul>
         </li>
       </ul>
@@ -88,9 +88,9 @@
     </div>
   <footer>
     <div class='row'>
-      <div class='col-md-12'>
+    <!--  <div class='col-md-12'>
         <%= link_to(this_blog.blog_name, this_blog.base_url) %> <%= t("admin.menu.powered_by")%> Publify <%=h PUBLIFY_VERSION %> – Icons courtesy of <a href='http://glyphicons.com/'>Glyphicons</a>
-      </div>
+      </div>-->
     </div>
   </footer>
 </div>
