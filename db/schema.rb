@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201152122) do
+ActiveRecord::Schema.define(version: 20151202134422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 20151201152122) do
     t.integer  "parent_id"
     t.text     "settings"
     t.string   "post_type",      default: "read"
-    t.integer  "page_id",        default: 0
     t.integer  "item_type_id"
   end
 
@@ -97,6 +96,7 @@ ActiveRecord::Schema.define(version: 20151201152122) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "menu_id"
   end
 
   add_index "item_types", ["user_id"], name: "index_item_types_on_user_id", using: :btree
