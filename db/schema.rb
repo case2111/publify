@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20151202134422) do
     t.integer  "parent_id"
     t.text     "settings"
     t.string   "post_type",      default: "read"
+    t.integer  "page_id",        default: 0
     t.integer  "item_type_id"
   end
 
