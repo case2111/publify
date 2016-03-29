@@ -12,7 +12,7 @@
       <div class='navbar-header'>
         <%= link_to(content_tag(:span, '', class: 'glyphicon glyphicon-th'), this_blog.base_url, class: 'navbar-brand' )%>
         <ul class="nav navbar-nav navbar-left">
-        <% item_type_gets.each do |item| %>
+       <!-- <% item_type_gets.each do |item| %>
                 <% if item.submenu.count == 0 %>
                     <li><%= link_to item.name, item_path(item) %></li>
                 <% else %>
@@ -20,10 +20,10 @@
                         <a href="<%= item_path(item.submenu.first) %>" class="dropdown-toggle" data-toggle="dropdown" ><%= item.name %>
                             <b class="caret"></b>
                         </a>
-                        <!--<button class="btn btn-default dropdown-toggle" type="button" id="toggle_menu1" date-toggle="dropdown"  aria-haspopup="true" aria-expanded="true">
+                        &lt;!&ndash;<button class="btn btn-default dropdown-toggle" type="button" id="toggle_menu1" date-toggle="dropdown"  aria-haspopup="true" aria-expanded="true">
                             <%= item.name %>
                             <span class="caret"></span>
-                        </button>-->
+                        </button>&ndash;&gt;
                         <ul class="dropdown-menu">
                             <% item.submenu.each do |submenu| %>
                             <li><%= link_to  submenu.name, item_path(submenu) %></li>
@@ -31,10 +31,10 @@
                         </ul>
                     </li>
                 <% end %>
-        <% end %>
+        <% end %>-->
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= "test_menu" %>
-                    <span class="caret"></span></a>
+                <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= "test_menu" %>
+                    <span class="caret"></span></a>-->
                 <ul class="dropdown-menu">
                     <li><a href="#">主页</a></li>
                     <li role="separator" class="divider"></li>

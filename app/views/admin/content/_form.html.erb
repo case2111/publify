@@ -31,11 +31,11 @@
   </div>
   <div class="col-md-8">
     <%= text_field 'article', 'title', class: 'form-control', placeholder: t('.title') %>
-    <%= select("article", "item_type_id", nil, {}, class: "form-control") do %>
+   <!-- <%= select("article", "item_type_id", nil, {}, class: "form-control") do %>
         <% item_type_gets.each do |c| -%>
             <%= content_tag(:option, c.name, value: c.id) %>
         <% end %>
-    <% end %>
+    <% end %>-->
     <div id="editor">
       <%= text_area('article', 'body_and_extended', {class: 'form-control ', style: 'height: 360px', placeholder: t('.type_your_post'), :"data-widearea" => "enable"}) %>
       <%#= render 'admin/shared/macros' %>
